@@ -1,0 +1,12 @@
+#!/bin/sh
+
+cat <<EOF
+In order to interract with bluetoothd rootless you can add a dbus rules like so in /etc/dbus-1/system.d/bluetooth.conf:
+
+<policy group="bluetooth">
+	<allow send_destination="org.bluez" />
+	<allow own="org.bluez" />
+</policy>
+
+and add yourself in the "bluetooth" group
+EOF

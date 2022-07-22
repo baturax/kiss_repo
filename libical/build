@@ -1,0 +1,14 @@
+#!/bin/sh -e
+
+mkdir build
+cd build
+cmake \
+	-DCMAKE_INSTALL_PREFIX=/usr \
+	-DCMAKE_INSTALL_LIBDIR=lib \
+	-DICAL_BUILD_DOCS=false \
+	-DICAL_GLIB=false \
+	-DENABLE_GTK_DOC=false \
+	-DLIBICAL_BUILD_TESTING=false \
+	..
+make
+make DESTDIR="$1" install

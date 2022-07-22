@@ -1,0 +1,27 @@
+#!/bin/sh -e
+
+./configure \
+	--prefix=/usr \
+	--mandir=/usr/share/man \
+	--sysconfdir=/etc \
+	--localstatedir=/var \
+    --libexecdir=/usr/sbin \
+    --enable-library \
+    --disable-manpages \
+	--disable-tools \
+	--disable-cups \
+	--disable-monitor \
+	--disable-systemd \
+	--disable-network \
+    --disable-udev \
+	--enable-experimental
+
+make
+make DESTDIR="$1" install
+
+# install default config
+install -Dm644 src/main.conf "$1/etc/bluetooth/main.conf"
+
+# install runit service
+install -Dm755 bluetoothd.run "$1/etc/sv/bluetoothd/run"
+ln -sf /run/runit/supervise.bluetoothd "$1/etc/sv/bluetoothd/supervise"

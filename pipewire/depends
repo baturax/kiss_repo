@@ -1,0 +1,8 @@
+alsa-lib
+dbus
+libsndfile
+libudev-zero
+ncurses
+openssl
+readline
+sbc

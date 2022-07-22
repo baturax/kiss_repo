@@ -1,0 +1,31 @@
+#!/bin/sh -e
+
+export DESTDIR="$1"
+
+for p in *.patch; do
+    patch -p1 < "$p"
+done
+
+meson \
+    --prefix=/usr \
+    --libexecdir=/usr/lib \
+    -Dtests=disabled \
+    -Dsession-managers="['wireplumber']" \
+    -Droc=disabled \
+    -Dudev=enabled \
+    -Dudevrulesdir=/usr/lib/udev/rules.d \
+    -Dbluez5=enabled \
+    -Dwireplumber:systemd=disabled \
+    . build
+
+ninja -C build
+ninja -C build install
+
+# copy initial conf
+install -Dm644 "$1/usr/share/pipewire/pipewire.conf" "$1/etc/pipewire/pipewire.conf"
+
+# alsa integration
+ALSA_CONFD="$1/etc/alsa/conf.d"
+mkdir -p "$ALSA_CONFD"
+ln -sf /usr/share/alsa/alsa.conf.d/50-pipewire.conf "$ALSA_CONFD"
+ln -sf /usr/share/alsa/alsa.conf.d/99-pipewire-default.conf "$ALSA_CONFD"

@@ -1,0 +1,10 @@
+#!/bin/sh -e
+
+cat <<EOF
+To auto-start wireplumber with pipewire you must add to pipewire.conf
+\`\`\`
+context.exec = [
+    { path = "/usr/bin/wireplumber" }
+]
+\`\`\`
+EOF

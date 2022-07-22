@@ -1,0 +1,9 @@
+#!/bin/sh -e
+
+meson \
+	-Dman-pages=disabled \
+	. build
+DESTDIR="$1" ninja -C build install
+
+# remove bash shit
+rm -fr "$1/usr/share/bash-completion/completions/tofi"

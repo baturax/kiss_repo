@@ -1,0 +1,14 @@
+cairo
+glib
+json-c
+libglvnd
+libinput
+libudev-zero
+libxkbcommon
+meson make
+pango
+pcre2
+pixman
+wayland
+wayland-protocols make
+wlroots

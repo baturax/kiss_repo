@@ -1,0 +1,6 @@
+#!/bin/sh
+
+YELLOW="\033[1;33m"
+CLEAR="\033[0m"
+
+printf "${YELLOW}Warning fake package${CLEAR}\nYou must install rust yourself (via rustup or whatever)\n"
