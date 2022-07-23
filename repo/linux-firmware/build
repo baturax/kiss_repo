@@ -1,0 +1,19 @@
+#!/bin/sh -e
+
+auto_rename() {
+    if [ "$#" -eq 0 ]; then
+        return
+    fi
+
+    for file in "$@"; do
+        case "$file" in
+            *\?*) mv "$file" "${file%\?*}" ;;
+            *) ;;
+        esac
+    done
+}
+
+auto_rename */* *
+
+mkdir -p "$1/lib/firmware/intel"
+cp -r * "$1/lib/firmware"
