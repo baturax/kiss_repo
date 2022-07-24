@@ -1,0 +1,6 @@
+dbus
+fontconfig
+freetype-harfbuzz
+libpng
+pixman
+wayland
