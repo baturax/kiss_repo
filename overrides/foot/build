@@ -1,0 +1,12 @@
+#!/bin/sh -e
+
+meson \
+    --prefix=/usr \
+    --buildtype=release \
+    --force-fallback-for=fcft,tllist \
+    -Dgrapheme-clustering=enabled \
+    -Dime=false \
+    . build
+
+ninja -C build
+ninja -C build install

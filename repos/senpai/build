@@ -1,0 +1,11 @@
+#!/bin/sh -e
+
+export GOPATH="$PWD/go"
+export GO111MODULE="on"
+
+go build \
+    -modcacherw \
+    -trimpath \
+    ./cmd/senpai
+
+install -Dm755 senpai "$1/usr/bin/senpai"

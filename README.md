@@ -17,3 +17,4 @@ Last time checked: -
 | yambar     |
 | noto-fonts |
 | imv        |
+| libyaml    |
