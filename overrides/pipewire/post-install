@@ -1,10 +1,13 @@
 #!/bin/sh -e
 
 cat <<EOF
-To auto-start wireplumber with pipewire you must add to pipewire.conf
-\`\`\`
-context.exec = [
-    { path = "/usr/bin/wireplumber" }
-]
-\`\`\`
+
+NOTE: Run the following command to make all alsa programs use pipewire:
+
+# ln -sf /usr/share/alsa/alsa.conf.d/99-pipewire-default.conf /etc/asound.conf
+
+NOTE: The pipewire daemon must be running for anything to work:
+
+$ pipewire
+
 EOF

@@ -1,10 +1,12 @@
 alsa-lib
 bluez
 dbus
-glib
 libsndfile
 libudev-zero
+linux-headers make
+meson make
 ncurses
 openssl
+pkgconf make
 readline
 sbc
