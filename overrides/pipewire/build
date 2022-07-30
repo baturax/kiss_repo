@@ -1,20 +1,21 @@
 #!/bin/sh -e
 
+export DESTDIR="$1"
+
 for p in *.patch; do
     patch -p1 < "$p"
 done
-
-export DESTDIR="$1"
 
 meson \
     --prefix=/usr \
     --libexecdir=/usr/lib \
     -Dtests=disabled \
+    -Dsession-managers="['media-session']" \
     -Dudev=enabled \
     -Dudevrulesdir=/usr/lib/udev/rules.d \
-    . output
+    . build
 
-ninja -C output
-ninja -C output install
+ninja -C build
+ninja -C build install
 
 :>"$1/usr/share/pipewire/media-session.d/with-alsa"
