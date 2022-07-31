@@ -8,7 +8,7 @@ Last time checked: -
 | clang         | See LLVM  |                                                        |
 | firefox       | Symlinked |                                                        |
 | foot          | Symlinked |                                                        |
-| linux-headers | 5.15.53   | https://mirrors.edge.kernel.org/pub/linux/kernel/v5.x/ |
+| linux-headers | 5.15.58   | https://mirrors.edge.kernel.org/pub/linux/kernel/v5.x/ |
 | llvm          | 14.0.6    | https://github.com/llvm/llvm-project/releases          |
 | neovim        | git       |                                                        |
 | pipewire      | 0.3.56    | https://gitlab.freedesktop.org/pipewire/pipewire/      |
