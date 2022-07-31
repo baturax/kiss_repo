@@ -1,8 +1,1 @@
-fontconfig
-libxkbcommon
-meson   make
-ncurses make
-pkgconf make
-python  make
-wayland
-wayland-protocols make
+/var/db/kiss/repos/community-repo/wayland/foot/depends
