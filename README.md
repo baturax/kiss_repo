@@ -15,18 +15,18 @@ Last time checked: -
 | rust          | fake      |                                                        |
 | sway          | git       |                                                        |
 
-## ogromny/kiss-repo::overrides
-Last time checked: -
+## ogromny/kiss-repo::repos
+Last time checked: 31/07/2022
 
 | Name           | Version   | Note                                                   |
 | -------------- | --------- | ------------------------------------------------------ |
 | bibata-cursor  | 1.1.2     | https://github.com/ful1e5/Bibata_Cursor/releases/      |
-| bluez          | 5.64      | https://mirrors.edge.kernel.org/pub/linux/bluetooth/   |
-| dbus           | 1.13.18   | https://dbus.freedesktop.org/releases/dbus/            |
+| bluez          | 5.65      | https://mirrors.edge.kernel.org/pub/linux/bluetooth/   |
+| dbus           | 1.14.0    | https://dbus.freedesktop.org/releases/dbus/            |
 | dbus-glib      | 0.112     | https://dbus.freedesktop.org/releases/dbus-glib/       |
 | fnott          | 1.2.1     | https://codeberg.org/dnkl/fnott/tags                   |
 | gopass         | 1.14.3    | https://github.com/gopasspw/gopass/releases            |
-| iwd            | 1.28      | https://kernel.org/pub/linux/network/wireless/         |
+| iwd            | 1.29      | https://kernel.org/pub/linux/network/wireless/         |
 | libical        | 3.0.14    | https://github.com/libical/libical/releases            |
 | libnotify      | 0.8.1     | https://gitlab.gnome.org/GNOME/libnotify/-/tags        |
 | libutf8proc    | 2.7.0     | https://github.com/JuliaStrings/utf8proc/releases      |
@@ -37,7 +37,7 @@ Last time checked: -
 
 ## kiss-community/community
 
-Last time checked: -
+Last time checked: 31/07/2022
 
 | Name       | Version   | Note                                               |
 | -----------| --------- | -------------------------------------------------- |
