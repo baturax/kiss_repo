@@ -35,6 +35,7 @@ Last time checked: 31/07/2022
 | sbc            | 2.0       | https://mirrors.edge.kernel.org/pub/linux/bluetooth/   |
 | senpai         | git       |                                                        |
 | tofi           | git       |                                                        |
+| syslinux       | 6.04-pre1 | https://mirrors.edge.kernel.org/pub/linux/utils/boot/syslinux/Testing/ |
 
 ## kiss-community/community
 
