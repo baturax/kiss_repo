@@ -14,6 +14,7 @@ Last time checked: -
 | pipewire      | 0.3.56    | https://gitlab.freedesktop.org/pipewire/pipewire/      |
 | rust          | fake      |                                                        |
 | sway          | git       |                                                        |
+| wlroots       | git       |                                                        |
 
 ## ogromny/kiss-repo::repos
 Last time checked: 31/07/2022
