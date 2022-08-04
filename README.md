@@ -36,6 +36,9 @@ Last time checked: 31/07/2022
 | senpai         | git       |                                                        |
 | tofi           | git       |                                                        |
 | syslinux       | 6.04-pre1 | https://mirrors.edge.kernel.org/pub/linux/utils/boot/syslinux/Testing/ |
+| pulseaudio     | 16.1      | https://freedesktop.org/software/pulseaudio/releases/  |
+| toxcore        | 0.2.18    | https://github.com/TokTok/c-toxcore/releases/          |
+| toxic          | 0.11.3    | https://github.com/TokTok/Toxic/releases/              |
 
 ## kiss-community/community
 

@@ -1,0 +1,19 @@
+#!/bin/sh -e
+
+export DESTDIR="$1"
+
+meson \
+    --prefix=/usr \
+    --libexecdir=/usr/lib \
+    -Ddaemon=false \
+    -Ddoxygen=false \
+    -Dgcov=false \
+    -Dman=false \
+    -Dtests=false \
+    -Dudev=disabled \
+    -Dx11=disabled \
+    -Dgtk=disabled \
+    . build
+
+ninja -C build
+ninja -C build install

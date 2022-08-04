@@ -1,0 +1,14 @@
+#!/bin/sh -e
+
+make \
+    DISABLE_X11=1 \
+    DISABLE_AV=1 \
+    DISABLE_QRCODE=1 \
+    DISABLE_QRPNG=1 \
+    ENABLE_RELEASE=1 \
+    DESTDIR="$1" \
+    PREFIX=/usr
+make \
+    DESTDIR="$1" \
+    PREFIX=/usr \
+    install
