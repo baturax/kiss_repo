@@ -3,18 +3,19 @@
 ## ogromny/kiss-repo::overrides
 Last time checked: -
 
-| Name          | Version   | Note                                                   |
-| ------------- | --------- | ------------------------------------------------------ |
-| clang         | See LLVM  |                                                        |
-| firefox       | Symlinked |                                                        |
-| foot          | Symlinked |                                                        |
-| linux-headers | 5.15.58   | https://mirrors.edge.kernel.org/pub/linux/kernel/v5.x/ |
-| llvm          | 14.0.6    | https://github.com/llvm/llvm-project/releases          |
-| neovim        | git       |                                                        |
-| pipewire      | 0.3.56    | https://gitlab.freedesktop.org/pipewire/pipewire/      |
-| rust          | fake      |                                                        |
-| sway          | git       |                                                        |
-| wlroots       | git       |                                                        |
+| Name          | Version   | Note                                                         |
+| ------------- | --------- | ------------------------------------------------------------ |
+| clang         | See LLVM  |                                                              |
+| firefox       | Symlinked |                                                              |
+| foot          | Symlinked |                                                              |
+| linux-headers | 5.15.58   | https://mirrors.edge.kernel.org/pub/linux/kernel/v5.x/       |
+| llvm          | 14.0.6    | https://github.com/llvm/llvm-project/releases                |
+| neovim        | git       |                                                              |
+| pipewire      | 0.3.56    | https://gitlab.freedesktop.org/pipewire/pipewire/            |
+| rust          | fake      |                                                              |
+| sway          | git       |                                                              |
+| wlroots       | git       |                                                              |
+| valgrind      | 3.19.0    | https://sourceware.org/pub/valgrind/valgrind-VERSION.tar.bz2 |
 
 ## ogromny/kiss-repo::repos
 Last time checked: 31/07/2022
@@ -39,6 +40,7 @@ Last time checked: 31/07/2022
 | pulseaudio     | 16.1      | https://freedesktop.org/software/pulseaudio/releases/  |
 | toxcore        | 0.2.18    | https://github.com/TokTok/c-toxcore/releases/          |
 | toxic          | 0.11.3    | https://github.com/TokTok/Toxic/releases/              |
+| atk            | 2.38.0    | https://gitlab.gnome.org/GNOME/atk/-/tags              |
 
 ## kiss-community/community
 
@@ -50,3 +52,4 @@ Last time checked: 31/07/2022
 | noto-emoji | 2.034     | https://github.com/googlefonts/noto-emoji/releases |
 | imv        | 4.3.1     | https://git.sr.ht/~exec64/imv                      |
 | libyaml    | 0.2.5     | https://github.com/yaml/libyaml/releases           |
+| aerc       | 0.11.0    | https://git.sr.ht/~rjarry/aerc                     |
