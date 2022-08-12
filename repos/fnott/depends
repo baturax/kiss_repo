@@ -2,5 +2,6 @@ dbus
 fontconfig
 freetype-harfbuzz
 libpng
+libutf8proc
 pixman
 wayland

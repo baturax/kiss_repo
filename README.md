@@ -18,7 +18,7 @@ Last time checked: -
 | valgrind      | 3.19.0    | https://sourceware.org/pub/valgrind/valgrind-VERSION.tar.bz2 |
 
 ## ogromny/kiss-repo::repos
-Last time checked: 31/07/2022
+Last time checked: 12/08/2022
 
 | Name           | Version   | Note                                                   |
 | -------------- | --------- | ------------------------------------------------------ |
@@ -26,8 +26,7 @@ Last time checked: 31/07/2022
 | bluez          | 5.65      | https://mirrors.edge.kernel.org/pub/linux/bluetooth/   |
 | dbus           | 1.14.0    | https://dbus.freedesktop.org/releases/dbus/            |
 | dbus-glib      | 0.112     | https://dbus.freedesktop.org/releases/dbus-glib/       |
-| fnott          | 1.2.1     | https://codeberg.org/dnkl/fnott/tags                   |
-| gopass         | 1.14.3    | https://github.com/gopasspw/gopass/releases            |
+| fnott          | 1.3.0     | https://codeberg.org/dnkl/fnott/tags                   |
 | iwd            | 1.29      | https://kernel.org/pub/linux/network/wireless/         |
 | libical        | 3.0.14    | https://github.com/libical/libical/releases            |
 | libnotify      | 0.8.1     | https://gitlab.gnome.org/GNOME/libnotify/-/tags        |
@@ -37,14 +36,12 @@ Last time checked: 31/07/2022
 | senpai         | git       |                                                        |
 | tofi           | git       |                                                        |
 | syslinux       | 6.04-pre1 | https://mirrors.edge.kernel.org/pub/linux/utils/boot/syslinux/Testing/ |
-| pulseaudio     | 16.1      | https://freedesktop.org/software/pulseaudio/releases/  |
 | toxcore        | 0.2.18    | https://github.com/TokTok/c-toxcore/releases/          |
 | toxic          | 0.11.3    | https://github.com/TokTok/Toxic/releases/              |
-| atk            | 2.38.0    | https://gitlab.gnome.org/GNOME/atk/-/tags              |
 
 ## kiss-community/community
 
-Last time checked: 31/07/2022
+Last time checked: 12/08/2022
 
 | Name       | Version   | Note                                               |
 | -----------| --------- | -------------------------------------------------- |
