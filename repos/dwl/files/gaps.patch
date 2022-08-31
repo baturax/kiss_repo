@@ -1,0 +1,184 @@
+diff --git a/dwl.c b/dwl.c
+index b09fc6f..8a5085c 100644
+--- a/dwl.c
++++ b/dwl.c
+@@ -175,6 +175,8 @@ struct Monitor {
+ 	struct wlr_box w;      /* window area, layout-relative */
+ 	struct wl_list layers[4]; /* LayerSurface::link */
+ 	const Layout *lt[2];
++    int gapi;
++    int gapo;
+ 	unsigned int seltags;
+ 	unsigned int sellt;
+ 	unsigned int tagset[2];
+@@ -226,6 +228,7 @@ static void createmon(struct wl_listener *listener, void *data);
+ static void createnotify(struct wl_listener *listener, void *data);
+ static void createpointer(struct wlr_input_device *device);
+ static void cursorframe(struct wl_listener *listener, void *data);
++static void defaultgaps(Arg const *arg);
+ static void destroyidleinhibitor(struct wl_listener *listener, void *data);
+ static void destroylayersurfacenotify(struct wl_listener *listener, void *data);
+ static void destroynotify(struct wl_listener *listener, void *data);
+@@ -237,6 +240,9 @@ static void focusstack(const Arg *arg);
+ static Client *focustop(Monitor *m);
+ static void fullscreennotify(struct wl_listener *listener, void *data);
+ static void incnmaster(const Arg *arg);
++static void incgaps(Arg const *arg);
++static void incigaps(Arg const *arg);
++static void incogaps(Arg const *arg);
+ static void inputdevice(struct wl_listener *listener, void *data);
+ static int keybinding(uint32_t mods, xkb_keysym_t sym);
+ static void keypress(struct wl_listener *listener, void *data);
+@@ -265,6 +271,7 @@ static Client *selclient(void);
+ static void setcursor(struct wl_listener *listener, void *data);
+ static void setfloating(Client *c, int floating);
+ static void setfullscreen(Client *c, int fullscreen);
++static void setgaps(int o, int i);
+ static void setlayout(const Arg *arg);
+ static void setmfact(const Arg *arg);
+ static void setmon(Client *c, Monitor *m, unsigned int newtags);
+@@ -279,6 +286,7 @@ static void tagmon(const Arg *arg);
+ static void tile(Monitor *m);
+ static void togglefloating(const Arg *arg);
+ static void togglefullscreen(const Arg *arg);
++static void togglegaps(Arg const *arg);
+ static void toggletag(const Arg *arg);
+ static void toggleview(const Arg *arg);
+ static void unmaplayersurface(LayerSurface *layersurface);
+@@ -329,6 +337,8 @@ static struct wlr_box sgeom;
+ static struct wl_list mons;
+ static Monitor *selmon;
+ 
++static int enablegaps = 1;
++
+ /* global event handlers */
+ static struct wl_listener cursor_axis = {.notify = axisnotify};
+ static struct wl_listener cursor_button = {.notify = buttonpress};
+@@ -877,6 +887,9 @@ createmon(struct wl_listener *listener, void *data)
+ 	/* Initialize monitor state using configured rules */
+ 	for (size_t i = 0; i < LENGTH(m->layers); i++)
+ 		wl_list_init(&m->layers[i]);
++
++    m->gapi = gapi;
++    m->gapo = gapo;
+ 	m->tagset[0] = m->tagset[1] = 1;
+ 	for (r = monrules; r < END(monrules); r++) {
+ 		if (!r->name || strstr(wlr_output->name, r->name)) {
+@@ -1000,6 +1013,10 @@ cursorframe(struct wl_listener *listener, void *data)
+ 	wlr_seat_pointer_notify_frame(seat);
+ }
+ 
++void defaultgaps(Arg const *arg) {
++    setgaps(gapo, gapi);
++}
++
+ void
+ destroyidleinhibitor(struct wl_listener *listener, void *data)
+ {
+@@ -1209,6 +1226,21 @@ incnmaster(const Arg *arg)
+ 	arrange(selmon);
+ }
+ 
++void incgaps(Arg const *arg)
++{
++    setgaps(selmon->gapo + arg->i, selmon->gapi + arg->i);
++}
++
++void incigaps(Arg const *arg)
++{
++    setgaps(selmon->gapo, selmon->gapi + arg->i);
++}
++
++void incogaps(Arg const *arg)
++{
++    setgaps(selmon->gapo + arg->i, selmon->gapi);
++}
++
+ void
+ inputdevice(struct wl_listener *listener, void *data)
+ {
+@@ -1387,7 +1419,10 @@ monocle(Monitor *m)
+ 	wl_list_for_each(c, &clients, link) {
+ 		if (!VISIBLEON(c, m) || c->isfloating || c->isfullscreen)
+ 			continue;
+-		resize(c, m->w.x, m->w.y, m->w.width, m->w.height, 0);
++        if (!monoclegaps)
++            resize(c, m->w.x, m->w.y, m->w.width, m->w.height, 0);
++        else
++            resize(c, m->w.x + gapo, m->w.y + gapo, m->w.width - 2 * gapo, m->w.height - 2 * gapo, 0);
+ 	}
+ }
+ 
+@@ -1822,6 +1857,12 @@ setfullscreen(Client *c, int fullscreen)
+ 	printstatus();
+ }
+ 
++void setgaps(int o, int i)
++{
++    selmon->gapo = MAX(o, 0);
++    selmon->gapi = MAX(i, 0);
++}
++
+ void
+ setlayout(const Arg *arg)
+ {
+@@ -2129,7 +2170,7 @@ tagmon(const Arg *arg)
+ void
+ tile(Monitor *m)
+ {
+-	unsigned int i, n = 0, h, mw, my, ty;
++	unsigned int i, n = 0, h, r, oe = enablegaps, ie = enablegaps, mw, my, ty;
+ 	Client *c;
+ 
+ 	wl_list_for_each(c, &clients, link)
+@@ -2138,22 +2179,29 @@ tile(Monitor *m)
+ 	if (n == 0)
+ 		return;
+ 
++    if (smartgaps == n)
++        oe = 0;
++
+ 	if (n > m->nmaster)
+-		mw = m->nmaster ? m->w.width * m->mfact : 0;
++		mw = m->nmaster ? (m->w.width + m->gapi * ie) * m->mfact : 0;
+ 	else
++        mw = m->w.width - 2 * m->gapo * oe + m->gapi * ie;
+ 		mw = m->w.width;
+-	i = my = ty = 0;
++    i = 0;
++	my = ty = m->gapo * oe;
+ 	wl_list_for_each(c, &clients, link) {
+ 		if (!VISIBLEON(c, m) || c->isfloating || c->isfullscreen)
+ 			continue;
+ 		if (i < m->nmaster) {
+-			h = (m->w.height - my) / (MIN(n, m->nmaster) - i);
+-			resize(c, m->w.x, m->w.y + my, mw, h, 0);
+-			my += c->geom.height;
++            r = MIN(n, m->nmaster) - i;
++			h = (m->w.height - my - m->gapo * oe - m->gapi * ie * (r - 1)) / r;
++            resize(c, m->w.x + m->gapo * oe, m->w.y + my, mw - m->gapi * ie, h, 0);
++			my += c->geom.height + m->gapi * ie;
+ 		} else {
+-			h = (m->w.height - ty) / (n - i);
+-			resize(c, m->w.x + mw, m->w.y + ty, m->w.width - mw, h, 0);
+-			ty += c->geom.height;
++            r = n - 1;
++			h = (m->w.height - ty - m->gapo * oe - m->gapi * ie * (r - 1)) / r;
++			resize(c, m->w.x + mw + m->gapo * oe, m->w.y + ty, m->w.width - mw - 2 * m->gapo * oe, h, 0);
++			ty += c->geom.height + m->gapi * ie;
+ 		}
+ 		i++;
+ 	}
+@@ -2176,6 +2224,12 @@ togglefullscreen(const Arg *arg)
+ 		setfullscreen(sel, !sel->isfullscreen);
+ }
+ 
++void togglegaps(Arg const *arg)
++{
++    enablegaps = !enablegaps;
++    arrange(selmon);
++}
++
+ void
+ toggletag(const Arg *arg)
+ {

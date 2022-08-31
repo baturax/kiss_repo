@@ -1,0 +1,61 @@
+Personal dwl config
+
+--- a/config.def.h
++++ b/config.def.h
+@@ -14,7 +14,9 @@
+ 	/* examples:
+ 	{ "Gimp",     NULL,       0,            1,           -1 },
+ 	*/
+-	{ "firefox",  NULL,       1 << 8,       0,           -1 },
++	{ "senpai",   NULL,       1 << 2,       0,           -1 },
++	{ "toxic",    NULL,       1 << 3,       0,           -1 },
++	{ "aerc",     NULL,       1 << 4,       0,           -1 },
+ };
+ 
+ /* layout(s) */
+@@ -32,7 +34,8 @@
+ 	{ "eDP-1",    0.5,  1,      2,    &layouts[0], WL_OUTPUT_TRANSFORM_NORMAL },
+ 	*/
+ 	/* defaults */
+-	{ NULL,       0.55, 1,      1,    &layouts[0], WL_OUTPUT_TRANSFORM_NORMAL },
++	{ "eDP-1",    0.5,  1,      1.25, &layouts[0], WL_OUTPUT_TRANSFORM_NORMAL },
++	{ NULL,       0.5,  1,      2,    &layouts[0], WL_OUTPUT_TRANSFORM_NORMAL },
+ };
+ 
+ /* keyboard */
+@@ -52,7 +55,7 @@
+ static const int natural_scrolling = 0;
+ 
+ /* If you want to use the windows key change this to WLR_MODIFIER_LOGO */
+-#define MODKEY WLR_MODIFIER_ALT
++#define MODKEY WLR_MODIFIER_LOGO
+ #define TAGKEYS(KEY,SKEY,TAG) \
+ 	{ MODKEY,                    KEY,            view,            {.ui = 1 << TAG} }, \
+ 	{ MODKEY|WLR_MODIFIER_CTRL,  KEY,            toggleview,      {.ui = 1 << TAG} }, \
+@@ -63,8 +66,24 @@
+ #define SHCMD(cmd) { .v = (const char*[]){ "/bin/sh", "-c", cmd, NULL } }
+ 
+ /* commands */
+-static const char *termcmd[] = { "alacritty", NULL };
+-static const char *menucmd[] = { "bemenu-run", NULL };
++static const char *termcmd[] = { "foot", NULL };
++static const char *menucmd[] = { "fuzzel",
++                                 "--font=ComicCodeLigatures Nerd Font:size=14",
++                                 "--prompt= ",
++                                 "--lines=5",
++                                 "--horizontal-pad=0",
++                                 "--vertical-pad=0",
++                                 "--inner-pad=0",
++                                 "--background=303446ff",
++                                 "--text-color=c6d0f5ff",
++                                 "--match-color=e78284ff",
++                                 "--selection-color=99d1dbff",
++                                 "--selection-text-color=303446ff",
++                                 "--border-width=0",
++                                 "--border-radius=0",
++                                 "--show-actions",
++                                 NULL };
++
+ 
+ static const Key keys[] = {
+ 	/* Note that Shift changes certain key codes: c -> C, 2 -> at, etc. */

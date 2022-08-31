@@ -1,0 +1,11 @@
+#!/bin/sh -e
+
+for patch in *.patch; do
+    patch -p1 < "$patch"
+done
+
+export CFLAGS="${CFLAGS} -Wno-pedantic"
+
+make PREFIX=/usr
+make PREFIX=/usr DESTDIR="$1" install
+
