@@ -72,7 +72,8 @@ index b09fc6f..3c44814 100644
 +   }
 +
  	if (n > m->nmaster)
- 		mw = m->nmaster ? m->w.width * m->mfact : 0;
+-		mw = m->nmaster ? m->w.width * m->mfact : 0;
++		mw = m->nmaster ? (m->w.width * m->mfact - m->gap.inner) : 0;
  	else
 -		mw = m->w.width;
 -	i = my = ty = 0;
@@ -89,7 +90,7 @@ index b09fc6f..3c44814 100644
 -			my += c->geom.height;
 +           r = MIN(n, m->nmaster) - i;
 +			h = (m->w.height - my - m->gap.outer - m->gap.inner * (r - 1)) / r;
-+			resize(c, m->w.x + m->gap.outer, m->w.y + my, mw, h, 0);
++			resize(c, m->w.x + m->gap.outer, m->w.y + my, mw - (n > m->nmaster ? m->gap.inner / 2 : 0), h, 0);
 +			my += c->geom.height + m->gap.inner;
  		} else {
 -			h = (m->w.height - ty) / (n - i);
@@ -97,7 +98,7 @@ index b09fc6f..3c44814 100644
 -			ty += c->geom.height;
 +           r = n - i;
 +			h = (m->w.height - ty - m->gap.outer - m->gap.inner * (r - 1)) / r;
-+			resize(c, m->w.x + mw + m->gap.outer + (m->nmaster == 0 ? 0 : m->gap.inner), m->w.y + ty, m->w.width - mw - 2 * m->gap.outer - (m->nmaster == 0 ? 0 : m->gap.inner), h, 0);
++			resize(c, m->w.x + mw + m->gap.outer + (m->nmaster == 0 ? 0 : m->gap.inner / 2), m->w.y + ty, m->w.width - mw - 2 * m->gap.outer - (m->nmaster == 0 ? 0 : m->gap.inner / 2), h, 0);
 +			ty += c->geom.height + m->gap.inner;
  		}
  		i++;
