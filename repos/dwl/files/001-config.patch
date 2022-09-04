@@ -1,8 +1,8 @@
-Personal dwl config
-
+diff --git a/config.def.h b/config.def.h
+index 190b0da..1d225f2 100644
 --- a/config.def.h
 +++ b/config.def.h
-@@ -14,7 +14,9 @@
+@@ -14,7 +14,9 @@ static const Rule rules[] = {
  	/* examples:
  	{ "Gimp",     NULL,       0,            1,           -1 },
  	*/
@@ -13,7 +13,7 @@ Personal dwl config
  };
  
  /* layout(s) */
-@@ -32,7 +34,8 @@
+@@ -32,7 +34,8 @@ static const MonitorRule monrules[] = {
  	{ "eDP-1",    0.5,  1,      2,    &layouts[0], WL_OUTPUT_TRANSFORM_NORMAL },
  	*/
  	/* defaults */
@@ -23,7 +23,18 @@ Personal dwl config
  };
  
  /* keyboard */
-@@ -52,7 +55,7 @@
+@@ -41,7 +44,9 @@ static const struct xkb_rule_names xkb_rules = {
+ 	/* example:
+ 	.options = "ctrl:nocaps",
+ 	*/
+-	.options = "",
++	.layout = "us,ru",
++	.variant = "euro",
++	.options = "compose:rwin,grp:alt_shift_toggle"
+ };
+ 
+ static const int repeat_rate = 25;
+@@ -52,7 +57,7 @@ static const int tap_to_click = 1;
  static const int natural_scrolling = 0;
  
  /* If you want to use the windows key change this to WLR_MODIFIER_LOGO */
@@ -32,7 +43,7 @@ Personal dwl config
  #define TAGKEYS(KEY,SKEY,TAG) \
  	{ MODKEY,                    KEY,            view,            {.ui = 1 << TAG} }, \
  	{ MODKEY|WLR_MODIFIER_CTRL,  KEY,            toggleview,      {.ui = 1 << TAG} }, \
-@@ -63,8 +66,24 @@
+@@ -63,8 +68,23 @@ static const int natural_scrolling = 0;
  #define SHCMD(cmd) { .v = (const char*[]){ "/bin/sh", "-c", cmd, NULL } }
  
  /* commands */
@@ -55,7 +66,6 @@ Personal dwl config
 +                                 "--border-radius=0",
 +                                 "--show-actions",
 +                                 NULL };
-+
  
  static const Key keys[] = {
  	/* Note that Shift changes certain key codes: c -> C, 2 -> at, etc. */

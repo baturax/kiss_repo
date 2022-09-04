@@ -6,7 +6,6 @@ Last time checked: 03/09/2022
 | Name          | Version   | Note                                                         |
 | ------------- | --------- | ------------------------------------------------------------ |
 | clang         | See LLVM  |                                                              |
-| firefox       | Symlinked |                                                              |
 | foot          | Symlinked |                                                              |
 | linux-headers | 5.15.64   | https://mirrors.edge.kernel.org/pub/linux/kernel/v5.x/       |
 | llvm          | 14.0.6    | https://github.com/llvm/llvm-project/releases                |
