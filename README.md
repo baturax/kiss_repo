@@ -1,18 +1,18 @@
 # Packages to maintain
 
 ## ogromny/kiss-repo::overrides
-Last time checked: -
+Last time checked: 03/09/2022
 
 | Name          | Version   | Note                                                         |
 | ------------- | --------- | ------------------------------------------------------------ |
 | clang         | See LLVM  |                                                              |
 | firefox       | Symlinked |                                                              |
 | foot          | Symlinked |                                                              |
-| linux-headers | 5.15.58   | https://mirrors.edge.kernel.org/pub/linux/kernel/v5.x/       |
+| linux-headers | 5.15.64   | https://mirrors.edge.kernel.org/pub/linux/kernel/v5.x/       |
 | llvm          | 14.0.6    | https://github.com/llvm/llvm-project/releases                |
-| pipewire      | 0.3.56    | https://gitlab.freedesktop.org/pipewire/pipewire/            |
+| pipewire      | 0.3.57    | https://gitlab.freedesktop.org/pipewire/pipewire/-/releases  |
 | rust          | fake      |                                                              |
-| valgrind      | 3.19.0    | https://sourceware.org/pub/valgrind/valgrind-VERSION.tar.bz2 |
+| valgrind      | 3.19.0    | https://sourceware.org/pub/valgrind/                         |
 
 ## ogromny/kiss-repo::repos
 Last time checked: 31/08/2022
