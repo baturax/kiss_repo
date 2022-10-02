@@ -1,0 +1,15 @@
+appstream
+bubblewrap
+curl
+gdk-pixbuf
+glib
+gpgme
+json-glib
+libarchive
+libassuan
+libgpg-error
+libxml2
+ostree
+python make
+xdg-desktop-portal
+xdg-desktop-portal-gtk

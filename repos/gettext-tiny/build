@@ -1,0 +1,4 @@
+#!/bin/sh -e
+
+make LIBINTL=NOOP
+make LIBINTL=NOOP DESTDIR="$1" prefix=/usr install

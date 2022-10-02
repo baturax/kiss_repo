@@ -1,0 +1,5 @@
+fuse
+gdk-pixbuf
+glib
+json-glib
+pipewire

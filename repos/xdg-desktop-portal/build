@@ -1,0 +1,14 @@
+#!/bin/sh -e
+
+./configure \
+    --prefix=/usr \
+    --disable-libportal \
+    --disable-geoclue \
+    --without-systemd \
+    --disable-docbook-docs \
+    --disable-dependency-tracking
+
+chmod +x install-sh
+
+make
+make DESTDIR="$1" install
