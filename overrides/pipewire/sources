@@ -1,3 +1,0 @@
-https://gitlab.freedesktop.org/pipewire/pipewire/-/archive/VERSION/pipewire-VERSION.tar.gz
-patches/autostart-media-session.patch
-patches/libudev-zero_pipewire0356.patch
