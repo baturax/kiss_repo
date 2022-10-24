@@ -9,7 +9,7 @@ Last time checked: 24/10/2022
 | flatpak       | Symlinked |                                                              |
 | foot          | Symlinked |                                                              |
 | linux-headers | 5.15.72   | https://mirrors.edge.kernel.org/pub/linux/kernel/v5.x/       |
-| llvm          | 15.0.0    | https://github.com/llvm/llvm-project/releases                |
+| llvm          | Symlinked |                                                              |
 | rust          | fake      |                                                              |
 | zig           | Symlinked |                                                              |
 
