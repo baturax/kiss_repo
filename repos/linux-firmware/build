@@ -1,8 +1,0 @@
-#!/bin/sh -e
-
-for file in */* *; do
-    if [ -d "$file" ]; then
-        continue
-    fi
-    install -Dm644 "$file" "$1/lib/firmware/${file%\?*}"
-done
