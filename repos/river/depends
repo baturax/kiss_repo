@@ -1,7 +1,0 @@
-libevdev
-libinput
-libxkbcommon
-pixman
-wayland
-wlroots
-zig

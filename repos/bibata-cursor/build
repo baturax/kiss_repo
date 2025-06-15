@@ -1,6 +1,0 @@
-#!/bin/sh -e
-
-mkdir -p "$1/usr/share/icons"
-cp -fr Bibata-Modern-Amber "$1/usr/share/icons/"
-cp -fr Bibata-Modern-Classic "$1/usr/share/icons/"
-cp -fr Bibata-Modern-Ice "$1/usr/share/icons/"

@@ -1,8 +1,0 @@
-#!/bin/sh
-
-cat <<EOF
-
-A separate user must be created for running dbus:
-    adduser -DH messagebus
-
-EOF
