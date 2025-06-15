@@ -1,0 +1,6 @@
+#!/bin/sh -e
+
+export DESTDIR="$1"
+
+cargo build --release
+cp $PWD/target/release/eza /usr/bin
