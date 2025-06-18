@@ -1,3 +1,10 @@
 rust
 libseat
 pipewire
+libudev-zero
+libxkbcommon
+wayland
+libinput
+pango
+cairo
+clang
