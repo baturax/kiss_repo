@@ -1,0 +1,7 @@
+#!/bin/sh -e
+
+export DESTDIR="$1"
+
+cargo build --release
+
+cp $PWD/target/release/yazi $PWD/target/release/ya /usr/bin/

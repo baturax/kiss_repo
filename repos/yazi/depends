@@ -1,0 +1,8 @@
+rust
+make
+
+#ffmpeg
+#jq
+#poppler
+#imagemagick
+#wl-clipboard
