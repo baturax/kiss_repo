@@ -1,0 +1,7 @@
+#!/bin/sh -e
+
+export DESTDIR="$1"
+
+go build -v .
+
+cp $PWD/tureng-console /usr/bin/baitranslate
