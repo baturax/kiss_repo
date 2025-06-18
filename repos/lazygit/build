@@ -1,0 +1,6 @@
+#!/bin/sh -e
+
+export DESTDIR="$1"
+
+go build -v
+mv lazygit /usr/bin
