@@ -1,0 +1,10 @@
+#!/bin/sh -e
+
+# export CFLAGS="-std=gnu11" && export CXXFLAGS="-std=gnu++11" to build pipewire
+
+export DESTDIR="$1"
+
+cargo build --release --no-default-features --features pipewire
+
+cp $PWD/target/release/niri /usr/bin/
+
