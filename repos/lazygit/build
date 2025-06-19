@@ -3,4 +3,4 @@
 export DESTDIR="$1"
 
 go build -v
-mv lazygit /usr/bin
+install -Dm755 ./lazygit "$1"/usr/bin/lazygit

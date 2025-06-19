@@ -3,4 +3,4 @@
 export DESTDIR="$1"
 
 go build -v .
-cp $PWD/go-md2man /usr/bin/
+install -Dm755 ./go-md2man "$1"/usr/bin/go-md2man
