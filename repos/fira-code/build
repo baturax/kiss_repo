@@ -1,0 +1,6 @@
+#!/bin/sh -e
+
+unzip ./*.zip
+
+mkdir -p /usr/share/fonts/firacode
+cp $PWD/ttf/* /usr/share/fonts/firacode
