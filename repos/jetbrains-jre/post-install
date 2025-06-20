@@ -1,0 +1,11 @@
+#!/bin/sh
+
+cat <<EOF
+
+Note: You will most likely want to create symlink to make java work
+
+-> ln -s /usr/lib/jvm/bin/java /usr/bin/
+
+and others if you want
+
+EOF
