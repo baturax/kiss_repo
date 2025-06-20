@@ -1,0 +1,8 @@
+#!/bin/sh -e
+
+export DESTDIR="$1"
+
+go build -v
+ls
+install -Dm755 ./duf "$1"/usr/bin/duf
+install -Dm644 ./duf.1 "$1"/usr/share/man/man1/duf.1
