@@ -1,0 +1,6 @@
+#!/bin/sh -e
+
+export DESTDIR="$1"
+
+mkdir -p "$1"/usr/share/fonts/nerd
+cp ./SymbolsNerdFontMono-Regular.ttf "$1"/usr/share/fonts/nerd
