@@ -1,0 +1,8 @@
+#!/bin/sh
+
+cat <<EOF
+
+Bat had some problems because of some rust library, so until a new release is released i will just use the binary
+
+
+EOF

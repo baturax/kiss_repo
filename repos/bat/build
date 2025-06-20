@@ -1,0 +1,6 @@
+#!/bin/sh -e
+
+ls
+
+install -Dm755 ./bat "$1/usr/bin/bat"
+install -Dm644 ./bat.1 "$1/usr/share/man/man1/bat.1"
