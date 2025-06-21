@@ -3,7 +3,6 @@
 export DESTDIR="$1"
 
 find . -exec chmod g+r,o+r {} +
-mkdir -p "$1"/usr/lib/jvm
-mkdir -p "$1"/usr/bin
+mkdir -p "$1"/usr/lib/jvm21
 
 cp -a ./* "$1"/usr/lib/jvm

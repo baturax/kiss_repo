@@ -1,0 +1,8 @@
+#!/bin/sh -e
+
+export DESTDIR="$1"
+
+find . -exec chmod g+r,o+r {} +
+mkdir -p "$1"/usr/lib/jvm17
+
+cp -a ./* "$1"/usr/lib/jvm
