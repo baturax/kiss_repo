@@ -36,6 +36,7 @@ sed -i 's/FREEBSD)/FREEBSD) || defined(Q_OS_LINUX) \&\& !defined(__GLIBC__)/' \
     -system-zlib \
     -system-freetype \
     -system-harfbuzz \
+    -openssl-linked \
     -silent
 
 make
