@@ -1,0 +1,5 @@
+#!/bin/sh -e
+
+for cmd in cpupower cpupower_install; do
+  make DESTDIR="$1" PREFIX=/usr NLS=false libdir=/usr/lib lib=lib mandir=/usr/share/man -C tools "$cmd"
+done
