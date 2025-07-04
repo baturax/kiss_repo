@@ -3,4 +3,4 @@
 export DESTDIR="$1"
 
 mkdir -p "$1"/usr/share/icons/
-cp -fr ../Bibata "$1"/usr/share/icons/
+cp -fr ../bibata "$1"/usr/share/icons/
