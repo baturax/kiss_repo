@@ -8,3 +8,4 @@ libinput
 pango
 cairo
 clang
+libdisplay-info

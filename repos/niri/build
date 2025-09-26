@@ -6,4 +6,10 @@ export DESTDIR="$1"
 
 cargo build --release --no-default-features --features pipewire
 
+mkdir -p "$1"/usr/bin
+mkdir -p "$1"/usr/share/wayland-sessions
+mkdir -p "$1"/usr/share/xdg-desktop-portal
+
 install -Dm755 ./target/release/niri "$1"/usr/bin/niri
+install -Dm755 ./resources/niri.desktop "$1"/usr/share/wayland-sessions/
+install -Dm755 ./resources/niri-portals.conf "$1"/usr/share/xdg-desktop-portal/
