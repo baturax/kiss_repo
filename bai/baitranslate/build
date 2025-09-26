@@ -1,7 +1,0 @@
-#!/bin/sh -e
-
-export DESTDIR="$1"
-
-go build -v .
-
-install -Dm755 ./tureng-console "$1"/usr/bin/baitranslate
